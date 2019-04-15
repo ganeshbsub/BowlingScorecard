@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".scorecard.ui.ScorecardFragment">
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentCurrentPinsNextButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentCurrentPinsBowlingPin2"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin1"
+        app:layout_constraintEnd_toStartOf="@id/fragmentCurrentPinsBowlingPin3"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCurrentPinsBowlingPin4"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/fragmentCurrentPinsBowlingPin2"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCurrentPinsBowlingPin4"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin2"
+        app:layout_constraintEnd_toStartOf="@id/fragmentCurrentPinsBowlingPin5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCurrentPinsBowlingPin10"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin2"
+        app:layout_constraintEnd_toStartOf="@id/fragmentCurrentPinsBowlingPin6"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/fragmentCurrentPinsBowlingPin4"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCurrentPinsBowlingPin10"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/fragmentCurrentPinsBowlingPin5"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCurrentPinsBowlingPin10"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin5"
+        app:layout_constraintEnd_toStartOf="@id/fragmentCurrentPinsBowlingPin8"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin4"
+        app:layout_constraintEnd_toStartOf="@id/fragmentCurrentPinsBowlingPin9"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/fragmentCurrentPinsBowlingPin7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin4"
+        app:layout_constraintEnd_toStartOf="@id/fragmentCurrentPinsBowlingPin10"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/fragmentCurrentPinsBowlingPin8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <ImageView
+        android:id="@+id/fragmentCurrentPinsBowlingPin10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/default_pin_padding"
+        android:src="@drawable/ic_bowling_pin"
+        android:tint="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/fragmentCurrentPinsBowlingPin9"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/fragmentCurrentPinsNextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:text="@string/next_throw"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
