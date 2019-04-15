@@ -1,4 +1,4 @@
-package com.ganeshbsub.example.bowlingscorecard.scorecard
+package com.ganeshbsub.example.bowlingscorecard.ui.scorecard
 
 import androidx.lifecycle.ViewModel
 

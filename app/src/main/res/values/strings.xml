@@ -2,9 +2,9 @@
     <string name="app_name">Bowling Scorecard</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
     <string name="title_bowling">Home</string>
     <string name="title_scorecard">Current Score</string>
-    <string name="next_throw">Next Throw</string>
-    <string name="your_scorecard">YOUR SCORECARD</string>
+    <string name="next_roll">Next Roll</string>
+    <string name="your_scorecard">Your Scorecard</string>
+    <string name="frame">FRAME</string>
 </resources>

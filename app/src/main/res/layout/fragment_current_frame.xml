@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".scorecard.ui.ScorecardFragment">
+    tools:context=".ui.scorecard.ScorecardFragment">
+
+    <TextView
+        android:id="@+id/fragmentCurrentPinsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/frame"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin10"/>
 
     <ImageView
         android:id="@+id/fragmentCurrentPinsBowlingPin1"
@@ -152,7 +163,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:text="@string/next_throw"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:text="@string/next_roll"
+        app:layout_constraintBottom_toBottomOf="parent"
+        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Inverse"
+        android:background="@color/colorAccent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

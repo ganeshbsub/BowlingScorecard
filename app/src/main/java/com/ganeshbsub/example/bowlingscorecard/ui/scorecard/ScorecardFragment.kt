@@ -1,4 +1,4 @@
-package com.ganeshbsub.example.bowlingscorecard.scorecard.ui
+package com.ganeshbsub.example.bowlingscorecard.ui.scorecard
 
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.ganeshbsub.example.bowlingscorecard.R
-import com.ganeshbsub.example.bowlingscorecard.scorecard.ScorecardViewModel
 
 class ScorecardFragment : Fragment() {
 
@@ -22,7 +21,7 @@ class ScorecardFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_current_pins, container, false)
+        return inflater.inflate(R.layout.fragment_current_frame, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
