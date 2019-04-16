@@ -2,11 +2,12 @@ package com.ganeshbsub.example.bowlingscorecard.ui.currentframe
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -32,7 +33,18 @@ class CurrentFrameFragment : Fragment() {
         fragmentCurrentPinsNextButton.setOnClickListener {
             validateAndPassInput()
         }
-        fragmentCurrentFramePinsToKnockDownEditText.addTextChangedListener { fragmentCurrentFramePinsToKnockDownInputLayout.error = null }
+        fragmentCurrentFramePinsToKnockDownEditText.addTextChangedListener(
+            object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {}
+
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    fragmentCurrentFramePinsToKnockDownInputLayout.error = null
+                }
+
+            }
+        )
         fragmentCurrentFramePinsToKnockDownEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
                 validateAndPassInput()
