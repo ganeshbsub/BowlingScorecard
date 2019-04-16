@@ -31,6 +31,9 @@ class ScorecardFragment : Fragment() {
         setupList()
         setDataObservers()
         viewModel.calculateScore()
+        fragmentScorecardResetButton.setOnClickListener {
+            viewModel.resetAll()
+        }
     }
 
     private fun setupList() {

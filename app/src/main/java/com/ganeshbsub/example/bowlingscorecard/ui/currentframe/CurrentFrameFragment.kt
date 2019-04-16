@@ -49,6 +49,9 @@ class CurrentFrameFragment : Fragment() {
         viewModel.frameInPlay.observe(this, Observer {
             fragmentCurrentPinsTitle.text = "${context!!.getText(R.string.frame)} : $it"
         })
+        viewModel.gameOver.observe(this, Observer {
+            if(it == true) fragmentCurrentPinsTitle.text = "Game Over"
+        })
     }
 
     private fun validateAndPassInput() {
@@ -64,6 +67,7 @@ class CurrentFrameFragment : Fragment() {
     }
 
     private fun isValidNumber(input: String): Boolean {
+        if (viewModel.gameOver.value!!) return false
         if (input.isEmpty()) return false
         if (input.toInt() <= viewModel.remainingPinsInFrame.value!!) return true
         return false

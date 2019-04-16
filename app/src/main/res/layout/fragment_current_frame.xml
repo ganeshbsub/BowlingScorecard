@@ -172,13 +172,13 @@
             android:maxLength="2"/>
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/fragmentCurrentPinsNextButton"
-        style="@style/Base.TextAppearance.AppCompat.Widget.Button.Inverse"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:background="@color/colorAccent"
+        style="@style/Widget.MaterialComponents.Button"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
         android:text="@string/next_roll"
         app:layout_constraintBottom_toBottomOf="parent" />
 

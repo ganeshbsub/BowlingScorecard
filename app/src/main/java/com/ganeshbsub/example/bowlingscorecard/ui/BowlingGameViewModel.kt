@@ -7,7 +7,7 @@ import com.ganeshbsub.example.bowlingscorecard.model.Scorecard
 
 class BowlingGameViewModel : ViewModel() {
 
-    val scorecard = MutableLiveData<Scorecard>()
+    private val scorecard = MutableLiveData<Scorecard>()
     var remainingPinsInFrame = MutableLiveData<Int>()
     private var ballRollsInFrame = 0
     var gameOver = MutableLiveData<Boolean>()
@@ -17,9 +17,7 @@ class BowlingGameViewModel : ViewModel() {
     val frameInPlay = switchMap(scorecard) { it.frameInPlay }!!
 
     init {
-        scorecard.value = Scorecard()
-        remainingPinsInFrame.value = 10
-        gameOver.value = false
+        resetAll()
     }
 
     fun doKnockDownPins(numberOfPins: Int) {
@@ -28,7 +26,7 @@ class BowlingGameViewModel : ViewModel() {
         ballRollsInFrame++
         remainingPinsInFrame.value = remainingPinsInFrame.value!! - numberOfPins
 
-        if (remainingPinsInFrame.value == 0 || ballRollsInFrame == 2 && frameInPlay.value != 10) {
+        if (remainingPinsInFrame.value == 0 || ballRollsInFrame == 2) {
             resetFrame()
         }
     }
@@ -38,8 +36,17 @@ class BowlingGameViewModel : ViewModel() {
     }
 
     private fun resetFrame() {
+        if (frameInPlay.value!! + 1 == 11) {
+            gameOver.value = true
+        }
         scorecard.value!!.frameInPlay.value = frameInPlay.value!! + 1
         remainingPinsInFrame.value = 10
         ballRollsInFrame = 0
+    }
+
+    fun resetAll() {
+        scorecard.value = Scorecard()
+        remainingPinsInFrame.value = 10
+        gameOver.value = false
     }
 }

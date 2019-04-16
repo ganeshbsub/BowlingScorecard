@@ -9,4 +9,5 @@
     <string name="frame">FRAME</string>
     <string name="dialog_pin_input_description">Select no. of Pins knocked over</string>
     <string name="pins_to_knock_down">Pins To Knock Down</string>
+    <string name="reset">Reset</string>
 </resources>
