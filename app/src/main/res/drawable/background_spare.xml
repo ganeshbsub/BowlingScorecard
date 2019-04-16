@@ -18,7 +18,7 @@
     <path
         android:name="dark_triangle"
         android:strokeColor="@color/colorPrimaryDark"
-        android:strokeWidth="4dpdp"
+        android:strokeWidth="2"
         android:pathData="M 0,0 H 100,0 V 0,100 H 0,100 V 0,0 z" />
 
 </vector>

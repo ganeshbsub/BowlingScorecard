@@ -1,5 +1,6 @@
 package com.ganeshbsub.example.bowlingscorecard.model
 
+import androidx.lifecycle.MutableLiveData
 import com.ganeshbsub.example.bowlingscorecard.model.Frame.Type.SPARE
 import com.ganeshbsub.example.bowlingscorecard.model.Frame.Type.STRIKE
 
@@ -8,12 +9,17 @@ import com.ganeshbsub.example.bowlingscorecard.model.Frame.Type.STRIKE
 * in the current Bowling Game.
  */
 data class Scorecard(
-    val pinsKnockedList: List<Int> = mutableListOf(),
-    val frames: MutableMap<Int, Frame> = HashMap(),
-    var frameInPlay: Int = 1
+    val pinsKnockedList: MutableLiveData<MutableList<Int>> = MutableLiveData(),
+    val frames: MutableLiveData<HashMap<Int, Frame>> = MutableLiveData(),
+    var frameInPlay: MutableLiveData<Int> = MutableLiveData()
 ) {
-
     var latestScoredFrameIndex = 0
+
+    init {
+        pinsKnockedList.value = mutableListOf()
+        frames.value = HashMap()
+        frameInPlay.value = 1
+    }
 
     /*
     * Call this function to calculate the current score, present in frames
@@ -27,8 +33,10 @@ data class Scorecard(
         var tempScore = 0
         var ballCount = 0
 
+        val listPinsKnocked = pinsKnockedList.value!!
+
         try {
-            pinsKnockedList.forEachIndexed { index, pinsKnocked ->
+            listPinsKnocked.forEachIndexed { index, pins ->
                 fun incrementFrameAndResetCounters() {
                     latestScoredFrameIndex ++
                     tempScore = 0
@@ -38,32 +46,32 @@ data class Scorecard(
                 if (latestScoredFrameIndex > 9) return@forEachIndexed //We have already reached the last frame
 
                 when {
-                    frames[index] != null -> {
+                    frames.value!![index] != null -> {
                         //Score for this frame ahs already been calculated
                         incrementFrameAndResetCounters()
                     }
-                    pinsKnocked == 10 -> {
+                    pins == 10 -> {
                         //When it's a Strike
-                        val score = (frames[latestScoredFrameIndex -1]?.score ?: 0) + 10 + pinsKnockedList[index + 1] + pinsKnockedList[index + 2]
-                        frames[latestScoredFrameIndex] = Frame(pinsKnockedList = listOf(pinsKnocked), score = score, type = STRIKE)
+                        val score = (frames.value!![latestScoredFrameIndex -1]?.score ?: 0) + 10 + listPinsKnocked[index + 1] + listPinsKnocked[index + 2]
+                        frames.value!![latestScoredFrameIndex] = Frame(pinsKnockedList = listOf(pins), score = score, type = STRIKE)
                         incrementFrameAndResetCounters()
                     }
-                    pinsKnocked + tempScore == 10 -> {
+                    pins + tempScore == 10 -> {
                         //When it's a Spare
-                        val score = (frames[latestScoredFrameIndex -1]?.score ?: 0) + 10 + pinsKnockedList[index + 1]
-                        frames[latestScoredFrameIndex] = Frame(pinsKnockedList = listOf(tempScore, pinsKnocked), score = score, type = SPARE)
+                        val score = (frames.value!![latestScoredFrameIndex -1]?.score ?: 0) + 10 + listPinsKnocked[index + 1]
+                        frames.value!![latestScoredFrameIndex] = Frame(pinsKnockedList = listOf(tempScore, pins), score = score, type = SPARE)
                         incrementFrameAndResetCounters()
                     }
                     ballCount == 0 -> {
                         //First roll of the ball for the current frame
-                        tempScore += pinsKnocked
+                        tempScore += pins
                         ballCount++
                     }
                     else -> {
                         //Second roll of the ball for the current frame
-                        tempScore += pinsKnocked
-                        val score = (frames[latestScoredFrameIndex -1]?.score ?: 0) + tempScore
-                        frames[latestScoredFrameIndex] = Frame(listOf(tempScore, pinsKnocked), score)
+                        tempScore += pins
+                        val score = (frames.value!![latestScoredFrameIndex -1]?.score ?: 0) + tempScore
+                        frames.value!![latestScoredFrameIndex] = Frame(listOf(tempScore, pins), score)
                         incrementFrameAndResetCounters()
                     }
                 }

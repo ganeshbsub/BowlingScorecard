@@ -12,16 +12,15 @@
         android:layout_height="wrap_content"
         android:text="@string/frame"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin10"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/fragmentCurrentPinsBowlingPin1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@+id/fragmentCurrentPinsNextButton"
@@ -34,7 +33,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin1"
@@ -48,7 +46,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin1"
@@ -61,7 +58,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin2"
@@ -75,7 +71,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin2"
@@ -89,7 +84,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin2"
@@ -103,7 +97,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin5"
@@ -118,7 +111,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin4"
@@ -133,7 +125,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin4"
@@ -148,7 +139,6 @@
         android:id="@+id/fragmentCurrentPinsBowlingPin10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="@dimen/default_pin_padding"
         android:src="@drawable/ic_bowling_pin"
         android:tint="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/fragmentCurrentPinsBowlingPin4"
@@ -158,14 +148,38 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
-    <Button
-        android:id="@+id/fragmentCurrentPinsNextButton"
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragmentCurrentFramePinsToKnockDownInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:text="@string/next_roll"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/background_colorless_bordered"
+        android:hint="@string/pins_to_knock_down"
+        android:paddingStart="@dimen/inputLayoutPaddingLeftRight"
+        android:paddingEnd="@dimen/inputLayoutPaddingLeftRight"
+        android:paddingTop="@dimen/inputLayoutPaddingLeftRight"
+        android:paddingBottom="@dimen/inputLayoutPaddingLeftRight"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentCurrentPinsNextButton"
+        app:layout_constraintTop_toBottomOf="@id/fragmentCurrentPinsBowlingPin1"
+        app:layout_constraintVertical_bias="1">
+
+        <EditText
+            android:id="@+id/fragmentCurrentFramePinsToKnockDownEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:maxLength="2"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/fragmentCurrentPinsNextButton"
         style="@style/Base.TextAppearance.AppCompat.Widget.Button.Inverse"
-        android:background="@color/colorAccent"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@color/colorAccent"
+        android:text="@string/next_roll"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

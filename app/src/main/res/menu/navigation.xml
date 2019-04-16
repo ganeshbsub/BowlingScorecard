@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_current_game"
         android:icon="@drawable/ic_bowling"
         android:title="@string/title_bowling" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_current_score"
         android:icon="@drawable/ic_score"
         android:title="@string/title_scorecard" />
 </menu>

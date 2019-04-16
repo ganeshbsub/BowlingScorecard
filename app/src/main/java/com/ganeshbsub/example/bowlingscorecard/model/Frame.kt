@@ -8,8 +8,7 @@ import com.ganeshbsub.example.bowlingscorecard.model.Frame.Type.NORMAL
 data class Frame(
     val pinsKnockedList: List<Int> = mutableListOf(),
     var score: Int = 0,
-    val type: Type = NORMAL,
-    var finalScore: Boolean = false
+    val type: Type = NORMAL
 ) {
     enum class Type {
         STRIKE, SPARE, NORMAL

@@ -1,13 +1,13 @@
 package com.ganeshbsub.example.bowlingscorecard.ui.scorecard
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.ganeshbsub.example.bowlingscorecard.R
+import com.ganeshbsub.example.bowlingscorecard.ui.BowlingGameViewModel
 
 class ScorecardFragment : Fragment() {
 
@@ -15,19 +15,19 @@ class ScorecardFragment : Fragment() {
         fun newInstance() = ScorecardFragment()
     }
 
-    private lateinit var viewModel: ScorecardViewModel
+    private lateinit var viewModel: BowlingGameViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_current_frame, container, false)
+        return inflater.inflate(R.layout.fragment_scorecard, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ScorecardViewModel::class.java)
-        // TODO: Use the ViewModel
+        viewModel = ViewModelProviders.of(this).get(BowlingGameViewModel::class.java)
+        
     }
 
 }

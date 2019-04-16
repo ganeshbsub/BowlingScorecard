@@ -7,7 +7,7 @@
     android:background="@drawable/background_colorless_bordered">
 
     <TextView
-        android:id="@+id/viewScorecardListItemThrowOne"
+        android:id="@+id/viewScorecardListItemBallOne"
         style="@style/TextViewThrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,18 +16,18 @@
         tools:text="6"/>
 
     <TextView
-        android:id="@+id/viewScorecardListItemThrowTwo"
+        android:id="@+id/viewScorecardListItemBallTwo"
         style="@style/TextViewThrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/background_colorless_bordered"
-        app:layout_constraintEnd_toStartOf="@+id/viewScorecardListItemThrowExtra"
-        app:layout_constraintStart_toEndOf="@+id/viewScorecardListItemThrowOne"
+        app:layout_constraintEnd_toStartOf="@+id/viewScorecardListItemBallExtra"
+        app:layout_constraintStart_toEndOf="@+id/viewScorecardListItemBallOne"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="4" />
 
     <TextView
-        android:id="@+id/viewScorecardListItemThrowExtra"
+        android:id="@+id/viewScorecardListItemBallExtra"
         style="@style/TextViewThrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,9 +44,9 @@
         android:minHeight="32dp"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/viewScorecardListItemThrowExtra"
-        app:layout_constraintStart_toStartOf="@id/viewScorecardListItemThrowOne"
-        app:layout_constraintTop_toBottomOf="@id/viewScorecardListItemThrowOne"
+        app:layout_constraintEnd_toEndOf="@+id/viewScorecardListItemBallExtra"
+        app:layout_constraintStart_toStartOf="@id/viewScorecardListItemBallOne"
+        app:layout_constraintTop_toBottomOf="@id/viewScorecardListItemBallOne"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         tools:text="44"/>
 

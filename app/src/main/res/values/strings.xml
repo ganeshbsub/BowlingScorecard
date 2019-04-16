@@ -2,9 +2,11 @@
     <string name="app_name">Bowling Scorecard</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
-    <string name="title_bowling">Home</string>
+    <string name="title_bowling">Current Game</string>
     <string name="title_scorecard">Current Score</string>
     <string name="next_roll">Next Roll</string>
     <string name="your_scorecard">Your Scorecard</string>
     <string name="frame">FRAME</string>
+    <string name="dialog_pin_input_description">Select no. of Pins knocked over</string>
+    <string name="pins_to_knock_down">Pins To Knock Down</string>
 </resources>
