@@ -7,7 +7,7 @@ import com.ganeshbsub.example.bowlingscorecard.model.Scorecard
 
 class BowlingGameViewModel : ViewModel() {
 
-    private val scorecard = MutableLiveData<Scorecard>()
+    val scorecard = MutableLiveData<Scorecard>()
     var remainingPinsInFrame = MutableLiveData<Int>()
     private var ballRollsInFrame = 0
     var gameOver = MutableLiveData<Boolean>()
@@ -36,10 +36,11 @@ class BowlingGameViewModel : ViewModel() {
     }
 
     private fun resetFrame() {
-        if (frameInPlay.value!! + 1 == 11) {
+        val currentFrameInPlay = scorecard.value!!.frameInPlay.value!!
+        if (currentFrameInPlay + 1 == 11) {
             gameOver.value = true
         }
-        scorecard.value!!.frameInPlay.value = frameInPlay.value!! + 1
+        scorecard.value!!.frameInPlay.value = currentFrameInPlay + 1
         remainingPinsInFrame.value = 10
         ballRollsInFrame = 0
     }
@@ -48,5 +49,6 @@ class BowlingGameViewModel : ViewModel() {
         scorecard.value = Scorecard()
         remainingPinsInFrame.value = 10
         gameOver.value = false
+        ballRollsInFrame = 0
     }
 }

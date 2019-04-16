@@ -26,13 +26,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin.sdk"
     implementation "androidx.appcompat:appcompat:$versions.androidX.appcompat"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
     implementation "androidx.core:core-ktx:$versions.androidX.core"
     implementation "com.google.android.material:material:$versions.androidX.material"
 
@@ -47,5 +49,7 @@ dependencies {
     testImplementation "junit:junit:$versions.test.junit"
     androidTestImplementation "androidx.test:runner:$versions.test.espresso.runner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$versions.test.espresso.sdk"
+    testImplementation "android.arch.core:core-testing:$versions.androidX.core"
     testImplementation "org.mockito:mockito-core:$versions.test.mockito"
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.test.mockitoKotlin"
 }
