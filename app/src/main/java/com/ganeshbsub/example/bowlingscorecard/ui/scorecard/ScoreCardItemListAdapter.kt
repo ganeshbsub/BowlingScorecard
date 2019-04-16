@@ -3,23 +3,24 @@ package com.ganeshbsub.example.bowlingscorecard.ui.scorecard
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.RecyclerView
 import com.ganeshbsub.example.bowlingscorecard.R
 import com.ganeshbsub.example.bowlingscorecard.model.Frame
-import com.ganeshbsub.example.bowlingscorecard.ui.BowlingGameViewModel
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.view_scorecard_list_item.*
 
-class ScoreCardItemAdapter(activityContext: AppCompatActivity) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ScoreCardItemListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val frames = mutableListOf<Frame>()
 
-    private var viewModel: BowlingGameViewModel = ViewModelProviders.of(activityContext).get(BowlingGameViewModel::class.java)
+    fun clear() {
+        frames.clear()
+        notifyDataSetChanged()
+    }
 
-    init {
-        viewModel
+    fun addAll(items: List<Frame>) {
+        frames.addAll(items)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -38,7 +39,7 @@ class ScoreCardItemAdapter(activityContext: AppCompatActivity) : RecyclerView.Ad
         holder.ballOne.text = frame.pinsKnockedList[0].toString()
         when {
             frame.type == Frame.Type.STRIKE -> holder.ballTwo.setBackgroundResource(R.drawable.background_strike)
-            frame.type == Frame.Type.SPARE -> holder.ballTwo.setBackgroundColor(R.drawable.background_spare)
+            frame.type == Frame.Type.SPARE -> holder.ballTwo.setBackgroundResource(R.drawable.background_spare)
             else -> {
                 holder.ballTwo.text = frame.pinsKnockedList[1].toString()
             }

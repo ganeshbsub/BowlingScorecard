@@ -4,13 +4,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background_colorless_bordered">
+    android:background="@drawable/background_colorless_bordered"
+    android:layout_margin="@dimen/inputLayoutPaddingLeftRight">
 
     <TextView
         android:id="@+id/viewScorecardListItemBallOne"
         style="@style/TextViewThrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="6"/>
@@ -18,8 +17,6 @@
     <TextView
         android:id="@+id/viewScorecardListItemBallTwo"
         style="@style/TextViewThrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:background="@drawable/background_colorless_bordered"
         app:layout_constraintEnd_toStartOf="@+id/viewScorecardListItemBallExtra"
         app:layout_constraintStart_toEndOf="@+id/viewScorecardListItemBallOne"
@@ -29,8 +26,6 @@
     <TextView
         android:id="@+id/viewScorecardListItemBallExtra"
         style="@style/TextViewThrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:background="@drawable/background_colorless_bordered"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

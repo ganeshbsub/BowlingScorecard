@@ -47,7 +47,7 @@ data class Scorecard(
 
                 when {
                     frames.value!![index] != null -> {
-                        //Score for this frame ahs already been calculated
+                        //Score for this frame has already been calculated
                         incrementFrameAndResetCounters()
                     }
                     pins == 10 -> {
@@ -69,8 +69,7 @@ data class Scorecard(
                     }
                     else -> {
                         //Second roll of the ball for the current frame
-                        tempScore += pins
-                        val score = (frames.value!![latestScoredFrameIndex -1]?.score ?: 0) + tempScore
+                        val score = (frames.value!![latestScoredFrameIndex -1]?.score ?: 0) + tempScore + pins
                         frames.value!![latestScoredFrameIndex] = Frame(listOf(tempScore, pins), score)
                         incrementFrameAndResetCounters()
                     }

@@ -9,8 +9,8 @@
     </style>
 
     <style name="TextViewThrow">
-        <item name="android:minHeight">32dp</item>
-        <item name="android:minWidth">32dp</item>
+        <item name="android:layout_width">32dp</item>
+        <item name="android:layout_height">32dp</item>
         <item name="android:background">@drawable/background_colorless_bordered</item>
         <item name="android:gravity">center</item>
     </style>
