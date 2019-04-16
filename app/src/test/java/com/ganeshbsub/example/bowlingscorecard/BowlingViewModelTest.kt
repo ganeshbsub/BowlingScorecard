@@ -43,7 +43,6 @@ class BowlingViewModelTest {
 
     @Test
     fun pinsKnockDownNormalFrameCompletedTest() {
-        viewModel.resetAll()
         viewModel.scorecard.value!!.frameInPlay.value = 3
 
         viewModel.doKnockDownPins(3)
@@ -54,7 +53,6 @@ class BowlingViewModelTest {
 
     @Test
     fun pinsKnockDownStrikeFrameCompletedTest() {
-        viewModel.resetAll()
         viewModel.scorecard.value!!.frameInPlay.value = 1
 
         viewModel.doKnockDownPins(3)
@@ -62,6 +60,39 @@ class BowlingViewModelTest {
         viewModel.doKnockDownPins(10)
 
         assertEquals(3, viewModel.scorecard.value!!.frameInPlay.value)
+    }
+
+    @Test
+    fun bonusTenthFrameTest() {
+        viewModel.scorecard.value!!.frameInPlay.value = 10
+
+        viewModel.doKnockDownPins(3)
+        viewModel.doKnockDownPins(7)
+
+        assertEquals(false, viewModel.gameOver.value!!)
+    }
+
+    @Test
+    fun tenthFrameCompletedTest() {
+        viewModel.scorecard.value!!.frameInPlay.value = 10
+
+        viewModel.doKnockDownPins(1)
+        viewModel.doKnockDownPins(7)
+
+        assertEquals(true, viewModel.gameOver.value!!)
+    }
+
+    @Test
+    fun tenthFrameCompletedAfterBonusTest() {
+        viewModel.scorecard.value!!.frameInPlay.value = 10
+
+        viewModel.doKnockDownPins(10)
+        viewModel.doKnockDownPins(10)
+
+        assertEquals(false, viewModel.gameOver.value!!)
+
+        viewModel.doKnockDownPins(10)
+        assertEquals(true, viewModel.gameOver.value!!)
     }
 
     @Test

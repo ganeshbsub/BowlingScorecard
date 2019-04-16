@@ -26,6 +26,10 @@ class BowlingGameViewModel : ViewModel() {
         ballRollsInFrame++
         remainingPinsInFrame.value = remainingPinsInFrame.value!! - numberOfPins
 
+        if (scorecard.value!!.frameInPlay.value!! == 10 && remainingPinsInFrame.value == 0 && ballRollsInFrame < 3) {
+            remainingPinsInFrame.value = 10
+            return
+        }
         if (remainingPinsInFrame.value == 0 || ballRollsInFrame == 2) {
             resetFrame()
         }
